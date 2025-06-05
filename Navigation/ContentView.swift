@@ -17,21 +17,27 @@ struct ContentView: View {
                         .font(.title)
                         .foregroundColor(Color.black)
                     
-                
+                    
                 }
-            
-                NavigationLink(destination: Text("Why did you click on a cat?")) {
+                
+                
+                NavigationLink(destination: CatView())  {
                     Image("calicat")
                         .resizable(resizingMode: .stretch)
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 150.0)
                 }
+                
             }
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
+            .toolbar {
+                ToolbarItemGroup(placement: .status) {
+                    NavigationLink(destination: CatView()) {
+                        Text("About")
+                    }
+                }
+                
+            }
         }
-
     }
 }
 
